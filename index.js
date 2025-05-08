@@ -9,7 +9,7 @@ const gravity = 0.7;
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 const keys = {
-  a: {
+  z: {
     pressed: false,
   },
   d: {
@@ -270,7 +270,7 @@ function animate() {
   //jumping
 
   //Player Movement
-  if (keys.a.pressed && player1.lastKey === "a") {
+  if (keys.z.pressed && player1.lastKey === "z") {
     player1.velocity.x = -5;
     player1.switchSprite("runBack");
   } else if (keys.d.pressed && player1.lastKey === "d") {
@@ -281,11 +281,11 @@ function animate() {
   }
 
   //jumping
-  if (keys.a.pressed && player1.velocity.y < 0) {
+  if (keys.z.pressed && player1.velocity.y < 0) {
     player1.switchSprite("jumpBack");
   } else if (player1.velocity.y < 0) {
     player1.switchSprite("jump");
-  } else if (player1.velocity.y > 0 && keys.a.pressed) {
+  } else if (player1.velocity.y > 0 && keys.z.pressed) {
     player1.switchSprite("fallBack");
   } else if (player1.velocity.y > 0) {
     player1.switchSprite("fall");
@@ -366,9 +366,9 @@ window.addEventListener("keydown", (e) => {
         keys.d.pressed = true;
         player1.lastKey = "d";
         break;
-      case "a":
-        keys.a.pressed = true;
-        player1.lastKey = "a";
+      case "z":
+        keys.z.pressed = true;
+        player1.lastKey = "z";
         break;
       case "w":
         if (player1.velocity.y === 0) {
@@ -443,8 +443,8 @@ window.addEventListener("keyup", (e) => {
     case "d":
       keys.d.pressed = false;
       break;
-    case "a":
-      keys.a.pressed = false;
+    case "z":
+      keys.z.pressed = false;
       break;
     case "w":
       keys.w.pressed = false;
